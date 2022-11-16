@@ -3,9 +3,11 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const Video = require('../models/video') 
 
+// path: mongodb+srv://<Database username>:<Database user password>@cluster0.fxinup0.mongodb.net/<Database Name>?retryWrites=true&w=majority
 const db = "mongodb+srv://karthik:karTHIK1234@cluster0.fxinup0.mongodb.net/videoplayer?retryWrites=true&w=majority"
 mongoose.Promise=global.Promise
 
+//Connecting Mongoose to Mongodb (db is the path of mongodb)
 mongoose.connect(db,function(err){
     if(err){
         console.error("Error!"+err);
