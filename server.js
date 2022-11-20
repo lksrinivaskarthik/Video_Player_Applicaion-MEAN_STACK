@@ -3,7 +3,8 @@
 const express=require('express')
 const bodyParser=require('body-parser')
 const path = require('path')
-
+// To eliminate the cors error we need to install the corse "npm install corse"
+const cors = require('cors');
 const api= require('./server/routes/api')
 
 const port=3000;
@@ -11,7 +12,7 @@ const port=3000;
 const app=express()
 
 app.use(express.static(path.join(__dirname,'dist')))
-
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
