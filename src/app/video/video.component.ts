@@ -4,7 +4,7 @@ import { VideoService } from '../video.service';
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  styleUrls: ['./video.component.css']
+  styleUrls: ['./video.component.css'],
 })
 export class VideoComponent implements OnInit {
 
@@ -39,6 +39,11 @@ export class VideoComponent implements OnInit {
 
   enableNewVideo(){
     this.flagNewVideo=false;
+  }
+
+  onUpdateVideoEvent(video:any){
+    this.videoService.updateVideo(video).subscribe(resUpdatedVideo => video=resUpdatedVideo);
+    this.selectedVideo=null;
   }
 
 }

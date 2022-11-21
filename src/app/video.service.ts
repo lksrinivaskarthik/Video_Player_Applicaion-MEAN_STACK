@@ -15,7 +15,11 @@ export class VideoService {
   }
 
   insertVideo(video:Video){
-    return this.http.post(this.post_url,video)
+    return this.http.post(this.post_url,video);
+  }
+
+  updateVideo(video:Video){
+    return this.http.put(`${this._url}/${video._id}`,video);
   }
 
 }
