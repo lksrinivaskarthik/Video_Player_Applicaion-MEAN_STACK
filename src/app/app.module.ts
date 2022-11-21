@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { VideoComponent } from './video/video.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
     HomeComponent,
     VideoComponent,
     VideoListComponent,
-    VideoDetailComponent
+    VideoDetailComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

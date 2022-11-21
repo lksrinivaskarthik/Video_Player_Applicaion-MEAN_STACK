@@ -4,13 +4,11 @@ import { VideoService } from '../video.service';
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  styleUrls: ['./video.component.css'],
-  providers:[VideoService]
+  styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
 
   videos: any;
-
   selectedVideo: any;
 
   constructor(private videoService : VideoService) {
