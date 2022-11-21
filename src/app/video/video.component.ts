@@ -31,9 +31,9 @@ export class VideoComponent implements OnInit {
   onSubmitAddVideo(video: Video){
     console.log(video._id)
     this.videoService.insertVideo(video).subscribe(newVideo=>{
-      
+      this.flagNewVideo=true
       this.videos.push(newVideo);
-      this.selectedVideo=video;
+      this.selectedVideo=newVideo;
     });
   }
 
@@ -41,9 +41,26 @@ export class VideoComponent implements OnInit {
     this.flagNewVideo=false;
   }
 
+
+
   onUpdateVideoEvent(video:any){
     this.videoService.updateVideo(video).subscribe(resUpdatedVideo => video=resUpdatedVideo);
     this.selectedVideo=null;
+  }
+
+  onDeleteVideoEvent(video:any){
+    let videoArray = this.videos;
+    this.videoService.deleteVideo(video).subscribe(resDeletedVideo => {
+      for(let i=0;i<videoArray.length;i++)
+      {
+        if(videoArray[i]._id === video._id)
+        {
+          videoArray.splice(i,1);
+        }
+      }
+    });
+    this.selectedVideo=null;
+
   }
 
 }

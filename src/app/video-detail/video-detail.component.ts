@@ -6,13 +6,14 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.css'],
   inputs:['video'],
-  outputs:['updateVideoEvent']
+  outputs:['updateVideoEvent','deleteVideoEvent']
 })
 export class VideoDetailComponent implements OnInit {
 
   video:any;
   public editTitle:boolean = false;
   private updateVideoEvent = new EventEmitter();
+  private deleteVideoEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -31,6 +32,10 @@ export class VideoDetailComponent implements OnInit {
 
   updateVideo(){
     this.updateVideoEvent.emit(this.video);
+  }
+
+  deleteVideo(){
+    this.deleteVideoEvent.emit(this.video)
   }
 
 }

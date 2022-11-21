@@ -19,10 +19,11 @@
                     <label>Description</label>
                     <input type="text" class="form-control" name="description" ngModel>
                 </div>
-                <button type="submit" class="btn btn-dark">Save</button>
+                <button type="submit" class="btn btn-dark" >Save</button>
             </form>
         </div>
-        <video-detail (updateVideoEvent)="onUpdateVideoEvent($event)"*ngIf="selectedVideo && flagNewVideo" [video]="selectedVideo"></video-detail>
+        <video-detail (deleteVideoEvent)="onDeleteVideoEvent($event)" (updateVideoEvent)="onUpdateVideoEvent($event)"
+        *ngIf="selectedVideo && flagNewVideo" [video]="selectedVideo"></video-detail>
     </div>
     <div class="col-sm-3">
         <button type="button" class="btn btn-success btn-block mt-3 mb-3" (click)="enableNewVideo()">+ New Button</button>

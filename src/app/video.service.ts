@@ -22,4 +22,8 @@ export class VideoService {
     return this.http.put(`${this._url}/${video._id}`,video);
   }
 
+  deleteVideo(video:Video){
+    return this.http.delete(`${this._url}/${video._id}`)
+  }
+
 }
