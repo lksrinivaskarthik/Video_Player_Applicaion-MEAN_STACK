@@ -11,6 +11,7 @@ export class VideoComponent implements OnInit {
   videos: any;
   selectedVideo: any;
 
+  flagNewVideo :Boolean=true;
   constructor(private videoService : VideoService) {
    }
 
@@ -23,7 +24,21 @@ export class VideoComponent implements OnInit {
 
   onSelectVideo(vid:any){
     this.selectedVideo=vid;
+    this.flagNewVideo=true
     console.log(this.selectedVideo)
+  }
+
+  onSubmitAddVideo(video: Video){
+    console.log(video._id)
+    this.videoService.insertVideo(video).subscribe(newVideo=>{
+      
+      this.videos.push(newVideo);
+      this.selectedVideo=video;
+    });
+  }
+
+  enableNewVideo(){
+    this.flagNewVideo=false;
   }
 
 }
